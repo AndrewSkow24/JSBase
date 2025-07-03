@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Особенности тега script в JavaScript</title>
+  </head>
+  <body>
+    <h1>Особенности тега script в JavaScript</h1>
+    <p>
+      Учтите, что в теге <i>script</i> можно либо писать код, либо подключать
+      файл. Попытка сделать это одновременно не будет работать
+    </p>
+    <script src="006.js">
+      alert("Something else ...");
+    </script>
+    <p>Точнее отработает подключение, а код внутри не будет работать.</p>
+  </body>
+</html>
