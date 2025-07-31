@@ -30,6 +30,7 @@ function isPrimeNumber(num) {
   for (let i = 2; i < num; i++) {
     if (num % i == 0) {
       //   console.log(i);
+      if (i>2 && )
       isPrime = false;
     }
   }
