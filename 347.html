@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Работа с HTML-кодом элементов</title>
+  </head>
+  <body>
+    <h1>Работа с HTML-кодом элементов</h1>
+    <h2>Task 1</h2>
+    <p id="p1">
+      Дан абзац и кнопка. По клику на кнопку прочитайте HTML код абзаца и
+      выведите его в консоль.
+    </p>
+    <button id="button1">Вывести текст в консоль</button>
+    <h2>Task 2</h2>
+    <p id="p2">
+      Дан абзац и кнопка. По клику на кнопку запишите в абзац новый текст так,
+      чтобы он был жирным.
+    </p>
+    <button id="button2">Добавить жирный текст в параграф</button>
+    <script>
+      //task 1
+      const button1 = document.querySelector("#button1");
+      const p1 = document.querySelector("#p1");
+      button1.addEventListener("click", () => {
+        console.log(p1.innerHTML);
+        // task 2
+      });
+
+      const button2 = document.querySelector("#button2");
+      const p2 = document.querySelector("#p2");
+      button2.addEventListener("click", () => {
+        p2.innerHTML = `<b>${p2.innerHTML}</b>`;
+      });
+    </script>
+  </body>
+</html>

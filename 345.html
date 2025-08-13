@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Обработчики разных событий</title>
+  </head>
+  <body>
+    <h1>Обработчики разных событий</h1>
+    <ul>
+      <li>dblclick - двойной клик по элементу</li>
+      <li>mouseover - наведение мыши на элемент</li>
+      <li>mouseout - удод курсора с элемента</li>
+      <input type="submit" id="button" />
+      <input type="submit" id="button2" />
+    </ul>
+    <script>
+      // №1⊗jsPmSMMA
+      // Дана кнопка. По двойному клику по ней выведите какое-нибудь
+      // сообщение.
+      const button = document.querySelector("#button");
+      button.addEventListener("dblclick", function () {
+        alert("Двойной щелчок по кнопке");
+      });
+      // №2⊗jsPmSMMA
+      // Дана кнопка. По наведению на нее выведите какое-нибудь
+      //  сообщение.
+      button.addEventListener("mouseover", () => {
+        alert("Наведение на элемент");
+      });
+      // №3⊗jsPmSMMA
+      // Дана кнопка. По уходу курсора с нее выведите какое-нибудь
+      //  сообщение.
+      button.addEventListener("mouseout", () => {
+        alert("Уход с элемента");
+      });
+      // №4⊗jsPmSMMA
+      // Дана кнопка. По наведению на нее выведите одно сообщение,
+      //  а по уходу с нее - другое.
+      const button2 = document.querySelector("#button2");
+      button2.addEventListener("mouseover", () => {
+        console.log("наведение на элемент");
+      });
+      button2.addEventListener("mouseout", () => {
+        console.log("уход курсора мыши с элемента");
+      });
+    </script>
+  </body>
+</html>

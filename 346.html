@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Работа с текстом элементов</title>
+  </head>
+  <body>
+    <h1>Работа с текстом элементов</h1>
+    <h2>Task 1</h2>
+    <p id="p1">Абзац текста для задачи 1</p>
+    <button id="button1">Прочитать текст абзаца и вывести в консоль</button>
+
+    <div>
+      <h2>Task 2</h2>
+      <p id="p2">Первоначальный текст</p>
+      <button id="button2">Изменить текст абзаца</button>
+    </div>
+
+    <div>
+      <h1>Task 3</h1>
+      <p id="p31">3</p>
+      <p id="p32">7</p>
+      <button id="button3">Сложить числа</button>
+    </div>
+
+    <div>
+      <h2>Task 4</h2>
+      <p id="p4_1">1</p>
+      <p id="p4_2">2</p>
+      <p id="p4_3">3</p>
+      <div id="div4">Результат:</div>
+      <button type="submit" id="button4">Вычислить сумму</button>
+    </div>
+
+    <div>
+      <h2>Task 5</h2>
+      <p id="p5">0</p>
+      <button id="button5">Прибавить 1</button>
+    </div>
+
+    <div>
+      <p id="p6">Всё очень хорошо</p>
+      <button id="button6">Добавить восклицательный знак</button>
+    </div>
+    <script>
+      // №1⊗jsPmSMMA
+      //   Дан абзац и кнопка. По клику на кнопку прочитайте текст
+      //  абзаца и выведите его в консоль.
+      const button1 = document.querySelector("#button1");
+      button1.addEventListener("click", () => {
+        let p1 = document.querySelector("#p1");
+        console.log(p1.textContent);
+      });
+      //   №2⊗jsPmSMMA
+      //   Дан абзац и кнопка. По клику на кнопку запишите в
+      // абзац новый текст.
+      const button2 = document.querySelector("#button2");
+      button2.addEventListener("click", () => {
+        const p2 = document.querySelector("#p2");
+        p2.textContent = "Изменённый текст абзаца";
+      });
+      //   №3⊗jsPmSMMA
+      //   Даны два абзаца, содержащие своим текстом какие-то числа,
+      //  и кнопка. По нажатию на кнопку выведите на экран сумму
+      // хранящихся чисел.
+      const button3 = document.querySelector("#button3");
+      button3.addEventListener("click", () => {
+        let number1 = +document.querySelector("#p31").textContent;
+        let number2 = +document.querySelector("#p32").textContent;
+        alert(number1 + number2);
+      });
+      //   №4⊗jsPmSMMA
+      //   Даны три абзаца с числами, див, и кнопка.
+      //  По нажатию на кнопку запишите в текст дива сумму чисел.
+      const button4 = document.querySelector("#button4");
+      button4.addEventListener("click", () => {
+        let number1 = +document.querySelector("#p4_1").textContent;
+        let number2 = +document.querySelector("#p4_2").textContent;
+        let number3 = +document.querySelector("#p4_3").textContent;
+        document.querySelector("#div4").textContent = `Результат: ${
+          number1 + number2 + number3
+        }`;
+      });
+      //   №5⊗jsPmSMMA
+      //   Дан абзац с числом и кнопка.
+      // По нажатию на кнопку прибавьте к значению абзаца
+      // единицу и запишите полученное число обратно.
+      const button5 = document.querySelector("#button5");
+
+      button5.addEventListener("click", () => {
+        const num = document.querySelector("#p5");
+
+        num.textContent = +num.textContent + 1;
+      });
+
+      //   №6⊗jsPmSMMA
+      //   Дан абзац с текстом и кнопка.
+      // По нажатию на кнопку запишите в конец
+      // текста абзаца восклицательный знак.
+      const button6 = document.querySelector("#button6");
+      button6.addEventListener("click", () => {
+        p6 = document.querySelector("#p6");
+        p6.textContent += "!";
+      });
+    </script>
+  </body>
+</html>

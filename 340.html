@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Сложные селекторы DOM элемента</title>
+  </head>
+  <body>
+    <h1>Сложные селекторы DOM элемента</h1>
+    <h2>Задача 1</h2>
+    <p>Дан следующий HTML:</p>
+
+    <div id="block">
+      <p>1</p>
+      <p>2</p>
+    </div>
+
+    <p>Получите ссылку на первый абзац из дива с id, равным block.</p>
+
+    <h2>Задача 2</h2>
+
+    <div class="block">
+      <p>1</p>
+      <p>2</p>
+    </div>
+    Получите ссылку на первый абзац из дива с классом block.
+
+    <h2>Задача 3</h2>
+    Дан следующий HTML:
+
+    <p class="www">text</p>
+    <p class="www">text</p>
+    Получите ссылку на первый абзац с классом www.
+
+    <script>
+      const task1 = document.querySelector("#block p");
+      console.log(task1);
+      console.log(document.querySelector(".block p"));
+      console.log(document.querySelector(".www"));
+    </script>
+  </body>
+</html>
