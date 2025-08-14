@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Объект this в JavaScript</title>
+  </head>
+  <body>
+    <h2>Задача 1</h2>
+    <p>
+      Дан инпут. По получению фокуса этим инпутом запишите в него число 1, а по
+      потери фокуса - число 2. Для обращения у инпуту внутри функции-обработчика
+      используйте объект this.
+    </p>
+    <input type="text" id="input1" />
+    <script>
+      const input1 = document.querySelector("#input1");
+      input1.addEventListener("focus", function () {
+        console.log("фокус на инпуте");
+        this.value = 1;
+      });
+      input1.addEventListener("blur", function () {
+        this.value = 2;
+      });
+    </script>
+    <h2>Задача 2</h2>
+    <p>
+      Дана кнопка, значением которой служит число 1. Сделайте так, чтобы по
+      клику на эту кнопку ее значение каждый раз увеличивалось на единицу.
+    </p>
+    <input type="button" id="button" value="1" />
+    <script>
+      const button = document.querySelector("#button");
+      button.addEventListener("click", function () {
+        this.value = +this.value + 1;
+      });
+    </script>
+  </body>
+</html>

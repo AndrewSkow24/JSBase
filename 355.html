@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This</title>
+  </head>
+  <body>
+    <h2>Задача 1</h2>
+    <p>
+      Даны 5 абзацев с какими-то текстами. По клику на любой абзац запишите в
+      конец его текста восклицательный знак.
+    </p>
+    <p id="p1">Lorem, ipsum dolor.</p>
+    <p id="p2">Lorem, ipsum dolor.</p>
+    <p id="p3">Lorem, ipsum dolor.</p>
+    <p id="p4">Lorem, ipsum dolor.</p>
+    <p id="p5">Lorem, ipsum dolor.</p>
+    <script>
+      const p1 = document.querySelector("#p1");
+      const p2 = document.querySelector("#p2");
+      const p3 = document.querySelector("#p3");
+      const p4 = document.querySelector("#p4");
+      const p5 = document.querySelector("#p5");
+
+      function addExclamationMark() {
+        this.textContent += "!";
+      }
+
+      p1.addEventListener("click", addExclamationMark);
+      p2.addEventListener("click", addExclamationMark);
+      p3.addEventListener("click", addExclamationMark);
+      p4.addEventListener("click", addExclamationMark);
+      p5.addEventListener("click", addExclamationMark);
+    </script>
+    <h2>Задача 2</h2>
+    <p>
+      Даны 3 инпута, в которых записаны какие-то числа. По потери фокуса в любом
+      из инпутов возведите стоящее в нем число в квадрат.
+    </p>
+    <input type="text" id="input1" value="1" />
+    <input type="text" id="input2" value="2" />
+    <input type="text" id="input3" value="3" />
+    <script>
+      function valueSqrt() {
+        this.value = +(this.value ** 2);
+      }
+      const input1 = document.querySelector("#input1");
+      const input2 = document.querySelector("#input2");
+      const input3 = document.querySelector("#input3");
+
+      input1.addEventListener("blur", valueSqrt);
+      input2.addEventListener("blur", valueSqrt);
+      input3.addEventListener("blur", valueSqrt);
+    </script>
+  </body>
+</html>

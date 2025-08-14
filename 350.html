@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Фокус текстовых полей в JS</title>
+  </head>
+  <body>
+    <h1>Фокус текстовых полей в JS</h1>
+    <div data-p="cont/pane">
+      <div data-w="cont/task" id="1">
+        <p data-e="head" data-x="">
+          <span data-e="tnum" data-x="">№1</span
+          ><span data-e="tash" data-x="">⊗jsPmSMMA</span>
+        </p>
+        <p>
+          Дан инпут. По получению фокуса запишите в него число
+          <code data-gs="comd/n" data-x="">2</code>.
+          <code data-gs="comd/n" data-x="">1</code>, а по потери фокуса - число
+        </p>
+      </div>
+      <input type="text" id="input1" />
+      <script>
+        const input1 = document.querySelector("#input1");
+        input1.addEventListener("focus", () => {
+          input1.value = 1;
+        });
+        input1.addEventListener("blur", () => {
+          input1.value = 2;
+        });
+      </script>
+      <div data-w="cont/task" id="2">
+        <p data-e="head" data-x="">
+          <span data-e="tnum" data-x="">№2</span
+          ><span data-e="tash" data-x="">⊗jsPmSMMA</span>
+        </p>
+        <p>
+          Дан инпут. Пусть в него вводится число. По потери фокуса выведите на
+          экран квадрат этого числа.
+        </p>
+      </div>
+      <input type="text" id="input2" />
+      <script>
+        const input2 = document.querySelector("#input2");
+        input2.addEventListener("blur", () => {
+          input2.value = +(input2.value ** 2);
+        });
+      </script>
+      <div data-w="cont/task" id="3">
+        <p data-e="head" data-x="">
+          <span data-e="tnum" data-x="">№3</span
+          ><span data-e="tash" data-x="">⊗jsPmSMMA</span>
+        </p>
+        <p>
+          Дан инпут, в котором изначально есть какой-то текст. По получению
+          фокуса инпутом очистите содержимое этого инпута.
+        </p>
+        <input type="text" id="input3" value="какой-то текст" />
+        <script>
+          const input3 = document.querySelector("#input3");
+          input3.addEventListener("blur", () => {
+            input3.value = "";
+          });
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Добавление обработчиков в цикле</title>
+  </head>
+  <body>
+    <div>
+      <h2>Task 1</h2>
+      <input type="text" />
+      <input type="text" />
+      <input type="text" />
+      <script>
+        const allInputs = document.querySelectorAll("input");
+        function func() {
+          this.value = Number(this.value) + 1;
+        }
+        for (let input of allInputs) {
+          input.addEventListener("blur", func);
+        }
+      </script>
+      <h2>Task 2</h2>
+      <p>23</p>
+      <p>12</p>
+      <p>2</p>
+      <p>3</p>
+      <p>4</p>
+      <script>
+        const allParagraphs = document.querySelectorAll("p");
+        function sqrtHtmlElements() {
+          this.textContent = +this.textContent * +this.textContent;
+        }
+        for (let paragraph of allParagraphs) {
+          paragraph.addEventListener("click", sqrtHtmlElements);
+        }
+      </script>
+    </div>
+  </body>
+</html>

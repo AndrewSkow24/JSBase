@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Отвязывание событий JS</title>
+  </head>
+  <body>
+    <h2>Task 1</h2>
+    <a href="https://ya.ru" id="link">ссылка на яндекс</a>
+    <button id="button1">Показать куда ссылка ведёт</button>
+    <script>
+      function showLink() {
+        const link = document.querySelector("#link");
+        link.textContent = `${link.textContent} (${link.href})`;
+        this.removeEventListener("click", showLink);
+      }
+      const button1 = document.querySelector("#button1");
+      button1.addEventListener("click", showLink);
+    </script>
+    <h2>Task 2</h2>
+    <input type="button" id="numberInput" value="1" />
+    <script>
+      function addOneToTen() {
+        this.value++;
+        if (this.value >= 10) this.removeEventListener("click", addOneToTen);
+      }
+      const numberInput = document.querySelector("#numberInput");
+      numberInput.addEventListener("click", addOneToTen);
+    </script>
+  </body>
+</html>

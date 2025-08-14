@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>2000</li>
+      <li>2004</li>
+      <li>2021</li>
+      <li>2022</li>
+      <li>2025</li>
+      <li>2031</li>
+    </ul>
+    <p>
+      Получите года, сумма цифр которых равна 6. Найдите сумму полученных годов.
+    </p>
+    <div id="result"></div>
+    <script>
+      const allLiElements = document.querySelectorAll("li");
+      let yearsWhereSumNumbersEquals = [];
+      for (let li of allLiElements) {
+        yearsWhereSumNumbersEquals.push(li.textContent);
+      }
+      yearsWhereSumNumbersEquals = yearsWhereSumNumbersEquals.filter((el) => {
+        let sum = 0;
+        for (let i = 0; i < el.length; i++) {
+          sum += +el[i];
+        }
+        return sum == 6;
+      });
+      console.log(yearsWhereSumNumbersEquals);
+      let sumYears = 0;
+      for (let year of yearsWhereSumNumbersEquals) {
+        sumYears += +year;
+      }
+      console.log(sumYears);
+      const resultHtml = document.querySelector("#result");
+      resultHtml.innerHTML = `<p>
+        Года сумма цифр которых равна 6: <b>${yearsWhereSumNumbersEquals}</b> <br> 
+        Сумма этих лет: <b>${sumYears}</b>
+        <p>`;
+    </script>
+  </body>
+</html>

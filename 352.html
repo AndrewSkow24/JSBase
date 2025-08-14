@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Цепочки методов и свойств в JavaScript</title>
+  </head>
+  <body>
+    <h1>Цепочки методов и свойств в JavaScript</h1>
+    <p>Дан следующий код:</p>
+    <img id="image" src="avatar.jpeg" />
+    <code
+      >let image = document.querySelector('#image');
+      console.log(image.src);</code
+    >
+    Переделайте приведенный выше код так, чтобы вместо введения переменной image
+    использовалась цепочка.
+    <script>
+      console.log(document.querySelector("#image").src);
+    </script>
+  </body>
+</html>

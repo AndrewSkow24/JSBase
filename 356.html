@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Задача 1</h2>
+    <div>
+      Даны абзацы и кнопка. По нажатию на кнопку найдите все абзацы, переберите
+      их циклом и установите текст каждого абзаца в значение 'text'.
+    </div>
+    <p>Абзац 1</p>
+    <p>Абзац 2</p>
+    <p>Абзац 3</p>
+    <button id="button1">изменить текст абзацев</button>
+    <script>
+      const allParagraph = document.querySelectorAll("p");
+      const button1 = document.querySelector("#button1");
+      button1.addEventListener("click", () => {
+        for (let paragraph of allParagraph) {
+          paragraph.textContent = "text";
+        }
+      });
+    </script>
+    <h2>Задача2</h2>
+    <div>
+      Даны абзацы с текстом и кнопка. По нажатию на кнопку запишите в конец
+      текста каждого абзаца его порядковый номер.
+    </div>
+    <p>Абзац 1</p>
+    <p>Абзац 2</p>
+    <p>Абзац 3</p>
+    <button>Записать в конец каждого порядковый номер</button>
+    <script>
+      const allParagraphs = document.querySelectorAll("p");
+      for (let i = 0; i < allParagraphs.length; i++) {
+        allParagraphs[i].textContent += " - " + i;
+      }
+    </script>
+    <h3>Задача 3</h3>
+    <p>
+      Даны инпуты с числами, абзац и кнопка. По нажатию на кнопку найдите сумму
+      чисел из инпутов и запишите эту сумму в текст абзаца.
+    </p>
+    <input type="text" value="1" />
+    <input type="text" value="2" />
+    <input type="text" value="3" />
+    <p id="sum">Сумма чисел:</p>
+    <button id="button3">Вычислить сумму</button>
+    <script>
+      const allInputs = document.querySelectorAll("input");
+      let sumOfInput = 0;
+      const button3 = document.querySelector("#button3");
+
+      for (let element of allInputs) {
+        sumOfInput += +element.value;
+      }
+
+      button3.addEventListener("click", function () {
+        document.querySelector("#sum").textContent += sumOfInput;
+      });
+    </script>
+  </body>
+</html>
