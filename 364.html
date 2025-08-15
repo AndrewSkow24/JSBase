@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Отработка изученного материала на работу с DOM</title>
+  </head>
+  <body>
+    <h1>Отработка изученного материала на работу с DOM</h1>
+
+    <h2>Task №1</h2>
+    Дан инпут и абзац. По потери фокуса в инпуте запишите значение инпута в
+    конец текста абзаца.
+    <br />
+    <input type="text" id="input1" />
+    <p id="p1"></p>
+    <script>
+      const input1 = document.querySelector("#input1");
+      const p1 = document.querySelector("#p1");
+      input1.addEventListener("blur", function () {
+        p1.textContent = input1.value;
+      });
+    </script>
+    <h2>Task №2</h2>
+    Дано несколько инпутов, абзац и кнопка. По нажатию на кнопку получите числа,
+    стоящие в этих инпутах и запишите их сумму в абзац.
+    <br />
+    <input type="text" class="input2" />
+    <input type="text" class="input2" />
+    <input type="text" class="input2" />
+    <button id="button2">Вычислить сумму</button>
+
+    <p id="p2">Сумма введённых чисел =</p>
+    <script>
+      const allInputs2 = document.querySelectorAll(".input2");
+      const button2 = document.querySelector("#button2");
+      const p2 = document.querySelector("#p2");
+
+      button2.addEventListener("click", function () {
+        let sum = 0;
+        for (let input of allInputs2) {
+          sum += +input.value;
+        }
+        p2.textContent += " " + sum;
+      });
+    </script>
+    <h2>Task №3</h2>
+    Дан инпут. В него вводится число. По потери фокуса найдите сумму цифр этого
+    числа.
+    <input type="text" id="input3" />
+    <script>
+      const input3 = document.querySelector("#input3");
+      input3.addEventListener("blur", function () {
+        let sumOfDigits = 0;
+        for (let i = 0; i < input3.value.length; i++) {
+          //   console.log(input3.value[i]);
+          sumOfDigits += +input3.value[i];
+        }
+        alert(`Сумма чисел: ${sumOfDigits}`);
+      });
+    </script>
+    <h2>Task №4</h2>
+    Дан инпут. В него вводятся числа через запятую. По потери фокуса найдите
+    среднее арифметическое этих чисел (сумма делить на количество).
+    <input type="text" id="input4" />
+    <script>
+      const input4 = document.querySelector("#input4");
+      input4.addEventListener("blur", function () {
+        let arrayOfNumbers = input4.value.split(",");
+        let sumOfNumbers = 0;
+        for (let num of arrayOfNumbers) {
+          sumOfNumbers += +num;
+        }
+        alert(
+          `Среднее арифметическое = ${sumOfNumbers / arrayOfNumbers.length}`
+        );
+      });
+    </script>
+
+    <h2>Task №5</h2>
+    Даны 4 инпута. В первый инпут вводится ФИО через пробел. По потери фокуса
+    запишите фамилию, имя и отчество в остальные 3 инпута. <br />
+    <input type="text" id="fullName" placeholder="ФИО" /> <br />
+    <input type="text" id="surname" placeholder="Фамилия" /> <br />
+    <input type="text" id="name" placeholder="Имя" /> <br />
+    <input type="text" id="patronymic" placeholder="Отчество" /> <br />
+    <script>
+      const fullName = document.querySelector("#fullName");
+      const surname = document.querySelector("#surname");
+      const name = document.querySelector("#name");
+      const patronymic = document.querySelector("#patronymic");
+
+      fullName.addEventListener("blur", function () {
+        let stringFullName = this.value;
+        console.log(stringFullName);
+        let arrayFullName = stringFullName.split(" ");
+        console.log(arrayFullName);
+        surname.value = arrayFullName[0];
+        name.value = arrayFullName[1];
+        patronymic.value = arrayFullName[2];
+      });
+    </script>
+    <h2>Task №6</h2>
+    Дан инпут. В него вводится ФИО через пробел. ФИО вводится с маленькой буквы.
+    Сделайте так, чтобы по потери фокуса инпутом, введенные фамилия, имя и
+    отчество автоматически стали записанными с большой буквы (в этом же инпуте).
+    <br />
+    <input type="text" id="input6" placeholder="ФИО" />
+    <script>
+      const input6 = document.querySelector("#input6");
+      input6.addEventListener("blur", function () {
+        let input6Array = input6.value.split(" ");
+        console.log(input6Array);
+        for (let i = 0; i < input6Array.length; i++) {
+          let arraySymbols = input6Array[i].split("");
+          arraySymbols[0] = arraySymbols[0].toUpperCase();
+          input6Array[i] = arraySymbols.join("");
+        }
+        input6.value = input6Array.join(" ");
+      });
+    </script>
+    <h2>Task №7</h2>
+
+    Дан инпут. В него вводится текст. По потери фокуса узнайте количество слов в
+    этом тексте.
+
+    <br />
+
+    <input type="text" id="input7" placeholder="Вводите слова" />
+
+    <script>
+      const input7 = document.querySelector("#input7");
+      input7.addEventListener("blur", function () {
+        let arrayWords = input7.value.trim().split(" ");
+        alert(`Введено ${arrayWords.length} слов`);
+      });
+    </script>
+
+    <h2>Task №8</h2>
+    Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса в
+    этом же инпуте поставьте эту дату в формате 2016-12-31.
+    <br />
+    <input
+      type="text"
+      id="input8"
+      placeholder="Вводите дату в формате 31.12.2016"
+      style="width: 50%"
+    />
+    <script>
+      const input8 = document.querySelector("#input8");
+      input8.addEventListener("blur", function () {
+        let americanFormatDate = input8.value.split(".").reverse().join("-");
+        input8.value = americanFormatDate;
+      });
+    </script>
+
+    <h2>Task №9</h2>
+    Дан инпут. В него вводится слово. По нажатию на кнопку проверьте то, что это
+    слово читается с начала и с конца одинаково (например, мадам).
+    <input type="text" id="input9" placeholder="Вводите слово:" />
+    <script>
+      const input9 = document.querySelector("#input9");
+      input9.addEventListener("blur", function () {
+        if (
+          input9.value.toLowerCase() ==
+          input9.value.toLowerCase().split("").reverse().join("")
+        ) {
+          alert(
+            `Слово "${input9.value}" читается одинаково с начала и с конца`
+          );
+        } else {
+          alert(
+            `Слово "${input9.value}" НЕ читается одинаково с начала и с конца`
+          );
+        }
+      });
+    </script>
+
+    <h2>Task №10</h2>
+    Дан инпут. В него вводится число. Проверьте по потери фокуса, что это число
+    содержит внутри себя цифру 3. <br />
+    <input type="text" id="input10" placeholder="Введите число" />
+    <script>
+      const input10 = document.querySelector("#input10");
+      input10.addEventListener("blur", function () {
+        if (input10.value.includes("3")) alert("Число содержит цифру 3");
+        else alert("Число не содержит цифру 3");
+      });
+    </script>
+    <h2>Task №11</h2>
+    Даны несколько абзацев и кнопка. По нажатию на кнопку запишите в конец
+    каждого абзаца его порядковый номер.
+    <p class="p11">Lorem, ipsum.</p>
+    <p class="p11">Lorem, ipsum dolor.</p>
+    <p class="p11">Lorem ipsum dolor sit.</p>
+    <button id="button11">Добавить порядковый номер к абзацам</button>
+    <script>
+      const allParagraphs11 = document.querySelectorAll(".p11");
+      button11 = document.querySelector("#button11");
+      button11.addEventListener("click", function () {
+        for (let i = 0; i < allParagraphs11.length; i++) {
+          allParagraphs11[i].innerHTML += ` <b>[${i}]</b>`;
+        }
+      });
+    </script>
+    <h2>Task №12</h2>
+    Даны ссылки. Добавьте в конец каждой ссылки ее href в круглых скобках.
+    <a href="https://ya.ru" class="link12">яндекс</a> <br />
+    <a href="https://mail.ru" class="link12">мэйл</a> <br />
+    <button id="button12">Узнать куда ведут ссылки</button>
+    <script>
+      const allLinks12 = document.querySelectorAll(".link12");
+      const button12 = document.querySelector("#button12");
+      button12.addEventListener("click", function () {
+        for (let link of allLinks12) {
+          link.textContent += ` (${link.href})`;
+        }
+      });
+    </script>
+    <h2>Task №13</h2>
+    Даны ссылки. Если ссылка начинается с http://, то добавьте ей в конец
+    стрелку → (делается так: &rarr;). <br />
+    <a href="https://ya.ru" class="link13">яндекс</a> <br />
+    <a href="https://mail.ru" class="link13">мэйл</a> <br />
+    <a href="/index.html">индекс эйчтиэмэль</a>
+    <button id="button13">Добавить стрелку</button>
+    <script>
+      const allLinks13 = document.querySelectorAll(".link13");
+      const button13 = document.querySelector("#button13");
+      button13.addEventListener("click", function () {
+        for (let link of allLinks13) {
+          if (link.href.startsWith("https://")) {
+            link.textContent += "→";
+          }
+        }
+      });
+    </script>
+    <h2>Task №14</h2>
+    Даны несколько абзацев с числами. По нажатию на любой абзац запишите в него
+    квадрат числа, которое в нем находится.
+    <p class="p13">1</p>
+    <p class="p13">12</p>
+    <p class="p13">133</p>
+    <script>
+      function sqrtParagraph() {
+        this.textContent *= this.textContent;
+      }
+      const allP13 = document.querySelectorAll(".p13");
+      for (let paragraph of allP13) {
+        paragraph.addEventListener("click", sqrtParagraph);
+      }
+    </script>
+
+    <h2>Task №15</h2>
+    Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса
+    узнайте день недели (словом), который приходится на эту дату.
+    <br />
+    <input
+      type="text"
+      id="input15"
+      placeholder="Вводите дату в формате 31.12.2016"
+      style="width: 50%"
+    />
+    <script>
+      const daysOfWeek = [
+        "воскресенье",
+        "понедельник",
+        "вторник",
+        "среда",
+        "четверг",
+        "пятница",
+        "суббота",
+      ];
+      const input15 = document.querySelector("#input15");
+      input15.addEventListener("blur", function () {
+        let arraysDataValue = input15.value.split(".").reverse();
+        for (let i = 0; i < arraysDataValue.length; i++) {
+          arraysDataValue[i] = Number(arraysDataValue[i]);
+        }
+        arraysDataValue[1]--;
+        const dateObject = new Date(...arraysDataValue);
+        alert(daysOfWeek[dateObject.getDay()]);
+      });
+    </script>
+
+    <h2>Task №16</h2>
+    Дан инпут. Реализуйте кнопочки +1, -1, которые будут увеличивать или
+    уменьшать на 1 значение инпута. Сделайте так, чтобы это значение не могло
+    стать меньше нуля <br />
+    <input type="button" id="increment" value="1" style="width: 49%" />
+    <input type="button" id="decrement" value="10" style="width: 49%" />
+    <script>
+      const incrementButton = document.querySelector("#increment");
+      const decrementButton = document.querySelector("#decrement");
+      incrementButton.addEventListener("click", function doIncrement() {
+        this.value++;
+        if (this.value <= 0) this.removeEventListener("click", doIncrement);
+      });
+      decrementButton.addEventListener("click", function doDecrement() {
+        this.value--;
+        if (this.value <= 0) this.removeEventListener("click", doDecrement);
+      });
+    </script>
+
+    <h2>Task №17</h2>
+    Дан инпут. Даны абзацы. Пусть в этот инпут записывается суммарное количество
+    нажатий по этим абзацам.
+    <br />
+    <p class="p17">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda cum
+      amet qui adipisci nisi alias libero mollitia eligendi minima, debitis
+      fugiat reprehenderit, voluptates voluptatibus voluptatem nam ipsam
+      excepturi distinctio recusandae?
+    </p>
+    <p class="p17">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis harum
+      dicta velit quia accusantium!
+    </p>
+    <p class="p17">Lorem, ipsum.</p>
+    <p class="p17">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+    <input
+      type="text"
+      id="input17"
+      placeholder="суммарное количество кликов по абзацам"
+      style="width: 50%"
+    />
+    <script>
+      const allParagraphs17 = document.querySelectorAll(".p17");
+      const input17 = document.querySelector("#input17");
+      let sumClicks = 0;
+      function addClicks() {
+        sumClicks++;
+        input17.value = sumClicks;
+      }
+      for (let paragraph of allParagraphs17) {
+        paragraph.addEventListener("click", addClicks);
+      }
+    </script>
+    <h2>Task №18</h2>
+    На странице есть дивы. В них есть текст. Обойдите все дивы и обрежьте тот
+    текст, который в них стоит так, чтобы он стал длиной 10 символов. И добавьте
+    троеточие в конец обрезанного текста <br />
+    <br />
+    <button id="button18">Обрезать тексты 10 символов</button>
+    <script>
+      // проверить действительно ли строка больше 10 символов
+      // если да, то применить slice + "..."
+    </script>
+    <h2>Task №19</h2>
+    Дан инпут и кнопка. По нажатию на кнопку сгенерируйте случайную строку из
+    8-ми символов и запишите в инпут.
+    <h2>Task №20</h2>
+    Дан инпут и кнопка. Пользователь вводит в инпут какую-то строку. По нажатию
+    на кнопку перемешайте введенные символы случайным образом и запишите ее
+    обратно в инпут.
+    <h2>Task №21</h2>
+    Дан инпут, кнопка и абзац. В инпут вводится температура в градусах
+    Фаренгейта. По клику на кнопку выведите в абзац температуру в градусах
+    Цельсия.
+    <h2>Task №22</h2>
+    Дан инпут, кнопка и абзац. В инпут вводится число. По нажатию на кнопку
+    выведите в абзац факториал этого числа.
+    <h2>Task №23</h2>
+    Даны 3 инпута, кнопка и абзац. В инпуты вводятся коэффициенты квадратного
+    уравнения. По нажатию на кнопку найдите корни этого уравнения и выведите их
+    в абзац.
+  </body>
+</html>

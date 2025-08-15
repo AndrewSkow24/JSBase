@@ -77,115 +77,230 @@
         });
       }
     </script>
-    №6⊗jsPmSMMA По клику на кнопку текст каждого абзаца должен стать жирным:
+    <h2>Task 6</h2>
+    По клику на кнопку текст каждого абзаца должен стать жирным:
 
-    <p>text1</p>
-    <p>text2</p>
-    <p>text3</p>
-    <button>click</button>
-    let button = document.querySelector('button'); let elems =
-    document.querySelectorAll('p'); button.addEventListener('click', function()
-    { for (let elem of elems) { elem.innerHTML = '<b>+elem.innerHTML+</b>
-    '; } }); №7⊗jsPmSMMA По клику на кнопку в консоль должна вывестись сумма
-    чисел из абзацев:
+    <p class="p6">text1</p>
+    <p class="p6">text2</p>
+    <p class="p6">text3</p>
+    <button id="button6">click</button>
+    <script>
+      let button6 = document.querySelector("#button6");
+      let allP6 = document.querySelectorAll(".p6");
+      button6.addEventListener("click", function () {
+        for (let p of allP6) {
+          p.innerHTML = `<b>${elem.innerHTML}</b>`;
+        }
+      });
+    </script>
+    <h2>Task 7</h2>
+    По клику на кнопку в консоль должна вывестись сумма чисел из абзацев:
 
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
+    <p class="p7">1</p>
+    <p class="p7">2</p>
+    <p class="p7">3</p>
 
-    <button>click</button>
-    let button = document.querySelector('button'); let elems =
-    document.querySelectorAll('p'); let sum = 0; for (let elem of elems) { sum =
-    elem.textContent + 1; button.addEventListener('click', function() {
-    console.log(sum); }); } №8⊗jsPmSMMA В инпуты вводятся числа. По клику на
-    кнопку в консоль должна вывестись сумма чисел из инпутов:
+    <button id="button7">click</button>
 
-    <input />
-    <input />
-    <input />
+    <script>
+      let button7 = document.querySelector("#button7");
+      let allP7 = document.querySelectorAll(".p7");
+      let sum = 0;
+      for (let p of allP7) {
+        sum += +p.textContent;
+        button7.addEventListener("click", function () {
+          console.log(sum);
+        });
+      }
+    </script>
 
-    <button>click</button>
-    let button = document.querySelector('button'); let elems =
-    document.querySelectorAll('input'); let sum = 0; for (let elem of elems) {
-    sum += elem.value; } button.addEventListener('click', function() {
-    console.log(sum); }); №9⊗jsPmSMMA В первые два инпута вводятся числа. По
-    клику на кнопку в третий инпут должна вывестись сумма этих чисел:
+    <h2>Task 8</h2>
+    В инпуты вводятся числа. По клику на кнопку в консоль должна вывестись сумма
+    чисел из инпутов:
 
-    <input id="inp1" />
-    <input id="inp2" />
-    <input id="inp3" />
+    <input class="input8" />
+    <input class="input8" />
+    <input class="input8" />
+
+    <button id="button8">click</button>
+    <script>
+      let button8 = document.querySelector("#button8");
+      let allInputs8 = document.querySelectorAll(".input8");
+      let sum8 = 0;
+
+      button8.addEventListener("click", function () {
+        for (let input of allInputs8) {
+          sum8 += +input.value;
+        }
+        console.log("Задача 8:", sum8);
+      });
+    </script>
+
+    <h2>Task 9</h2>
+    В первые два инпута вводятся числа. По клику на кнопку в третий инпут должна
+    вывестись сумма этих чисел:
+    <br />
+    <input id="inp1" /> <br />
+    <input id="inp2" /> <br />
+    <input id="inp3" /> <br />
 
     <button id="btn">click</button>
-    let btn = document.querySelector('#btn'); let inp1 =
-    document.querySelector('#inp1'); let inp2 = document.querySelector('#inp2');
-    let inp3 = document.querySelector('#inp3'); btn.addEventListener('click',
-    function() { inp3.textContent = inp1.textContent + inp2.textContent; });
-    №10⊗jsPmSMMA В первые два инпута вводятся числа. По клику на кнопку в абзац
-    должна вывестись сумма этих чисел:
 
-    <input id="inp1" />
-    <input id="inp2" />
+    <script>
+      let btn = document.querySelector("#btn");
+      let inp1 = document.querySelector("#inp1");
+      let inp2 = document.querySelector("#inp2");
+      let inp3 = document.querySelector("#inp3");
+      btn.addEventListener("click", function () {
+        inp3.value = +inp1.value + +inp2.value;
+      });
+    </script>
+
+    <h2>Task 10</h2>
+    В первые два инпута вводятся числа. По клику на кнопку в абзац должна
+    вывестись сумма этих чисел:
+
+    <input id="input10_1" />
+    <input id="input10_2" />
     <p id="res"></p>
 
-    <button id="btn">click</button>
-    let btn = document.querySelector('btn'); let res =
-    document.querySelector('res'); let inp1 = document.querySelector('inp1');
-    let inp2 = document.querySelector('inp2'); button.addEventListener('click',
-    function() { res.value = inp1.value + inp2.value; }); №11⊗jsPmSMMA По клику
-    на кнопку нужно проверить, что текст в каждом инпуте совпадает с текстом его
-    data атрибута:
+    <button id="button10">click</button>
 
-    <input data-text="text1" />
-    <input data-text="text2" />
-    <input data-text="text3" />
+    <script>
+      let button10 = document.querySelector("#button10");
+      let res = document.querySelector("#res");
+      let input10_1 = document.querySelector("#input10_1");
+      let input10_2 = document.querySelector("#input10_2");
+      button10.addEventListener("click", function () {
+        res.textContent = +input10_1.value + +input10_2.value;
+      });
+    </script>
 
-    <button id="btn">click</button>
-    let inputs = document.querySelectorAll('input') let button =
-    document.querySelector('#button') button.addEventListener('click',function()
-    { for (let input of inputs) { if (input.value === input.dataset) {
-    input.classList.add('right') } else { input.classList.add('wrong') } } });
-    №12⊗jsPmSMMA По клику на кнопку нужно проверить, что текст в каждом инпуте
-    совпадает с текстом соответствующего элемента массива:
+    <h2>Task 11</h2>
+    По клику на кнопку нужно проверить, что текст в каждом инпуте совпадает с
+    текстом его data атрибута:
+    <br />
+    <input data-text="text1" class="input11" /> <br />
+    <input data-text="text2" class="input11" /> <br />
+    <input data-text="text3" class="input11" /> <br />
 
-    <input />
-    <input />
-    <input />
+    <button id="button11">click</button> <br />
+    <button id="button11_2">Проверить классы</button> <br />
+    <script>
+      let inputs11 = document.querySelectorAll(".input11");
+      let button11 = document.querySelector("#button11");
+      button11.addEventListener("click", function () {
+        for (let input of inputs11) {
+          if (input.value === input.dataset.text) {
+            input.classList.add("right");
+            // console.log(input.classList);
+          } else {
+            input.classList.add("wrong");
+            // console.log(input.classList);
+          }
+        }
+      });
+      const button11_2 = document.querySelector("#button11_2");
+      button11_2.addEventListener("click", function () {
+        for (input of inputs11) {
+          console.log(input.classList);
+        }
+      });
+    </script>
 
-    <button id="btn">click</button>
-    let inputs = document.querySelectorAll('input') let button =
-    document.querySelector('#button') let texts = [ 'text1', 'text2', 'text3',
-    ]; button.addEventListener('click',function() { for (let input of inputs) {
-    for (let text of texts) { if (input.value === text) {
-    input.classList.add('right') } else { input.classList.add('wrong') } } } });
-    №13⊗jsPmSMMA В инпуты вводятся числа. По клику на кнопку в консоль должна
-    вывестись сумма введенных чисел:
+    <h2>Task 12</h2>
+    По клику на кнопку нужно проверить, что текст в каждом инпуте совпадает с
+    текстом соответствующего элемента массива:
+    <br />
+    <input class="input12" /> <br />
+    <input class="input12" /> <br />
+    <input class="input12" /> <br />
 
-    <input />
-    <input />
-    <input />
+    <button id="button12">click</button>
+    <button id="checkClasses">проверить классы</button>
+    <script>
+      let inputs12 = document.querySelectorAll(".input12");
+      let button12 = document.querySelector("#button12");
+      let texts = ["text1", "text2", "text3"];
+      button12.addEventListener("click", function () {
+        for (let i = 0; i < inputs12.length; i++) {
+          if (inputs12[i].value == texts[i]) {
+            inputs12[i].classList.add("right");
+            console.log("right");
+          } else {
+            inputs12[i].classList.add("wrong");
+            console.log("wrong");
+          }
+        }
+      });
+      const buttonCheckClasses = document.querySelector("#checkClasses");
+      buttonCheckClasses.addEventListener("click", function () {
+        for (let input of inputs12) {
+          console.log(input.classList);
+        }
+      });
+    </script>
 
-    <button id="btn">click</button>
-    let inputs = document.querySelectorAll('inputs'); let btn =
-    document.querySelector('#btm'); let sum = 0; btn.addEventListener('click',
-    function() { for (let input of inputs) { sum += Number(input); }
-    console.log(sum); }); №14⊗jsPmSMMA В первые два инпута вводятся числа. По
-    клику на кнопку в третий инпут должна вывестись сумма этих чисел:
+    <h2>Task 13</h2>
+    В инпуты вводятся числа. По клику на кнопку в консоль должна вывестись сумма
+    введенных чисел:
+    <br />
+    <input class="input13" /> <br />
+    <input class="input13" /> <br />
+    <input class="input13" /> <br />
 
-    <input id="inp1" />
-    <input id="inp2" />
-    <input id="inp3" />
+    <button id="button13">click</button>
+    <script>
+      let inputs13 = document.querySelectorAll(".input13");
+      let button13 = document.querySelector("#button13");
+      let sumTask13 = 0;
+      button13.addEventListener("click", function () {
+        console.log("клик сработал");
+        console.log(inputs13);
+        for (let input of inputs13) {
+          sumTask13 += Number(input.value);
+        }
+        console.log(sumTask13);
+      });
+    </script>
 
-    <button id="btn">click</button>
-    let btn = document.querySelector('#btn'); let inp1 =
-    document.querySelector('#inp1'); let inp2 = document.querySelector('#inp2');
-    let inp3 = document.querySelector('#inp3'); let sum = inp1.value +
-    inp2.value; btn.addEventListener('click', function() { inp3.value = sum; });
-    №15⊗jsPmSMMA В инпут вводится число. По потери фокуса в консоль должна
-    вывестись сумма цифр этого числа:
+    <h2>Task 14</h2>
+    В первые два инпута вводятся числа. По клику на кнопку в третий инпут должна
+    вывестись сумма этих чисел:
+    <br />
+    <input id="input14_1" /> <br />
+    <input id="input14_2" /> <br />
+    <input id="input14_3" /> <br />
 
-    <input id="inp" />
-    let inp = document.querySelector('#inp').value; inp.addEventListener('blur',
-    function() { let digits = +inp.split(''); let sum = 0; for (let digit of
-    digits) { sum += digit; } console.log(sum); });
+    <button id="button14">click</button>
+    <script>
+      let button14 = document.querySelector("#button14");
+      let input14_1 = document.querySelector("#input14_1");
+      let input14_2 = document.querySelector("#input14_2");
+      let input14_3 = document.querySelector("#input14_3");
+      button14.addEventListener("click", function () {
+        let sumTask14 = +input14_1.value + +input14_2.value;
+
+        input14_3.value = sumTask14;
+      });
+    </script>
+
+    <h2>Task 15</h2>
+    В инпут вводится число. По потери фокуса в консоль должна вывестись сумма
+    цифр этого числа:
+    <br />
+    <input id="input15" /> <br />
+    <script>
+      let input15 = document.querySelector("#input15");
+      input15.addEventListener("blur", function () {
+        let digits = input15.value;
+        console.log("digits:", digits);
+        let sum = 0;
+        for (let digit of digits) {
+          sum += +digit;
+        }
+        console.log(sum);
+      });
+    </script>
   </body>
 </html>
